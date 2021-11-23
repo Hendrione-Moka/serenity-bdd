@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-    features="src/test/resources/features/",
-    glue="com.example",
+    features = "src/test/resources/features/",
+    glue = "com.example",
     stepNotifications = true,
-    tags = "@sample")
+    tags = "@test")
 public class SerenityRunner {}
