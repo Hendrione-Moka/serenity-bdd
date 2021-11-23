@@ -6,12 +6,12 @@ import io.cucumber.java.Before;
 
 public class AndroidDriverHook {
 
-  @Before
+  @Before(value = "@android")
   public void beforeScenario() {
     AndroidDriverInit.initialize();
   }
 
-  @After
+  @After(value = "@android")
   public void afterScenario() {
     AndroidDriverInit.quit();
   }
