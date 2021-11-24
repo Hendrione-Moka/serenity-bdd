@@ -9,5 +9,5 @@ import org.junit.runner.RunWith;
     features = "src/test/resources/features/",
     glue = "com.example",
     stepNotifications = true,
-    tags = "@login and @positive")
+    tags = "@positive")
 public class SerenityRunner {}
