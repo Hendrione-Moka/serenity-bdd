@@ -4,6 +4,8 @@ import com.example.BaseTest;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Assertions;
 
 public class LoginPageSteps extends BaseTest {
@@ -36,5 +38,7 @@ public class LoginPageSteps extends BaseTest {
     //isDisplayed
     boolean isDisplayed = calculatorPage.checkHamburgerBtnAppear();
     Assertions.assertTrue(isDisplayed);
+    //Hamcrest
+    MatcherAssert.assertThat(isDisplayed, Matchers.equalTo(true));
   }
 }

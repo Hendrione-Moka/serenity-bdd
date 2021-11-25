@@ -7,4 +7,3 @@ appiumProperties:
   automationName: UIAutomator2
   newCommandTimeout: 120
   autoGrantPermissions: true
-
