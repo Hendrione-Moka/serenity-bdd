@@ -4,9 +4,9 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -27,6 +27,8 @@ public class AndroidDriverInit {
     String url = "http://localhost:4723/wd/hub";
     try {
       driver = new AndroidDriver<>(new URL(url), caps);
+      //implicit wait
+      driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     } catch (MalformedURLException e) {
       e.printStackTrace();
     }

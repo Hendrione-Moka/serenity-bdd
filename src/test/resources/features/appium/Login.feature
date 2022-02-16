@@ -7,3 +7,5 @@ Feature: Login
     When user input password "admin"
     When user click button login
     Then user successfully login
+    When user go to list menu
+    When user do scroll on list page
