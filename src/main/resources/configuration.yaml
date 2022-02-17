@@ -1,0 +1,3 @@
+!!com.example.app.properties.AppiumProperties
+appiumUrl: http://localhost:4723/wd/hub
+email: antomyh@gmail.com

@@ -1,5 +1,7 @@
 package com.example.app.drivers;
 
+import com.example.app.properties.AppiumProperties;
+import com.example.app.properties.PropertiesReader;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
@@ -15,6 +17,10 @@ public class AndroidDriverInit {
   public static AndroidDriver<AndroidElement> driver;
 
   public static void initialize() {
+    //load config
+    PropertiesReader propertiesReader = new PropertiesReader();
+    AppiumProperties properties = propertiesReader.readProperties();
+
     DesiredCapabilities caps = new DesiredCapabilities();
     caps.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
     caps.setCapability(MobileCapabilityType.DEVICE_NAME, "device");
@@ -24,9 +30,9 @@ public class AndroidDriverInit {
     //additional
     caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 120);
     caps.setCapability(AndroidMobileCapabilityType.AUTO_GRANT_PERMISSIONS, true);
-    String url = "http://localhost:4723/wd/hub";
+//    String url = "http://localhost:4723/wd/hub";
     try {
-      driver = new AndroidDriver<>(new URL(url), caps);
+      driver = new AndroidDriver<>(new URL(properties.getAppiumUrl()), caps);
       //implicit wait
       driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     } catch (MalformedURLException e) {
